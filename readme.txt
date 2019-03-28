@@ -3,7 +3,7 @@
 
 ## About the Project
 
-SongAmbassador is the FrontEnd to a full-stack application. It calls an API built in JavaScript using the React for styling.
+SongAmbassador is the FrontEnd to a full-stack application. It calls an API built in JavaScript using the React library used for building the User interface.
 The full app will allow users to search for artists/songs and favorite them into selected playlist.
 
 ## Local Setup
@@ -38,12 +38,66 @@ Please see [Front-End](https://github.com/SiCuellar/SongAmbassador_API)
 
 GET https://intense-escarpment-60510.herokuapp.com/api/v1/favorites
 * Returns a list of your favorites songs that are stored in the database 
+[
+  {
+    "id": 1,
+    "name": "We Will Rock You",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 88
+  },
+  {
+    "id": 2,
+    "name": "Careless Whisper",
+    "artist_name": "George Michael"
+    "genre": "Pop",
+    "rating": 93
+  },
+]
+
 
 GET https://intense-escarpment-60510.herokuapp.com/api/v1/favorites/:id
 * Returns the favorite object with the specific :id you’ve passed in. A 404 is returned if the favorite is not found.
 
+[
+  {
+    "id": 1,
+    "name": "We Will Rock You",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 88
+  }
+]
+
+
 POST https://intense-escarpment-60510.herokuapp.com/api/v1/favorites
 * creates a new favorite for database.
+
+{
+  "favorites": {
+    "id": 1,
+    "name": "We Will Rock You",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 88
+  }
+}
+
+PUT  https://intense-escarpment-60510.herokuapp.com/api/v1/favorites/:id
+* Allows one to update an existing favorited song with the following parameters
+
+{
+  "favorites": {
+    "id": 1,
+    "name": "We Are the Champions",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 77
+  }
+}
+
+DELETE https://intense-escarpment-60510.herokuapp.com/api/v1/favorites/:id
+*Will delete the favorite with the id passed in and return a 204 status code.
 
 
 
