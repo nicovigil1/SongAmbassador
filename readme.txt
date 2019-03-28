@@ -3,7 +3,7 @@
 
 ## About the Project
 
-SongAmbassador is the FrontEnd to a full-stack application. It calls an API built in JavaScript using the React library used for building the User interface.
+SongAmbassador is the FrontEnd to a full-stack application. It calls an API built in JavaScript and uses the React library to build the User interface.
 The full app will allow users to search for artists/songs and favorite them into selected playlist.
 
 ## Local Setup
