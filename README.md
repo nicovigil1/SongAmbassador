@@ -1,68 +1,103 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SongAmbassador
 
-## Available Scripts
 
-In the project directory, you can run:
+## About the Project
 
-### `npm start`
+SongAmbassador is the FrontEnd to a full-stack application. It calls an API built in JavaScript and uses the React library to build the User interface.
+The full app will allow users to search for artists/songs and favorite them into selected playlist.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Local Setup
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+You'll need to setup an API key with Musixmatch: 
+[https://developer.musixmatch.com/documentation](https://developer.musixmatch.com/documentation)
 
-### `npm test`
+## Deployment
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Our app backend is deployed on heroku at: [https://intense-escarpment-60510.herokuapp.com]
 
-### `npm run build`
+## Back-End
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Please see [Front-End](https://github.com/SiCuellar/SongAmbassador_API)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributors
 
-### `npm run eject`
+* Nico Vigil  [https://github.com/nicovigil1](https://github.com/nicovigil1)
+* Silvestre Cuellar [https://github.com/sicuellar](https://github.com/SiCuellar)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Built With
+* Javascript
+* Express 
+* postgreSQL
+* Mocha 
+* Chai
+* React
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Backend Endpoints
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+GET https://intense-escarpment-60510.herokuapp.com/api/v1/favorites
+* Returns a list of your favorites songs that are stored in the database 
+[
+  {
+    "id": 1,
+    "name": "We Will Rock You",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 88
+  },
+  {
+    "id": 2,
+    "name": "Careless Whisper",
+    "artist_name": "George Michael"
+    "genre": "Pop",
+    "rating": 93
+  },
+]
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+GET https://intense-escarpment-60510.herokuapp.com/api/v1/favorites/:id
+* Returns the favorite object with the specific :id you’ve passed in. A 404 is returned if the favorite is not found.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[
+  {
+    "id": 1,
+    "name": "We Will Rock You",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 88
+  }
+]
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+POST https://intense-escarpment-60510.herokuapp.com/api/v1/favorites
+* creates a new favorite for database.
 
-### Analyzing the Bundle Size
+{
+  "favorites": {
+    "id": 1,
+    "name": "We Will Rock You",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 88
+  }
+}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+PUT  https://intense-escarpment-60510.herokuapp.com/api/v1/favorites/:id
+* Allows one to update an existing favorited song with the following parameters
 
-### Making a Progressive Web App
+{
+  "favorites": {
+    "id": 1,
+    "name": "We Are the Champions",
+    "artist_name": "Queen"
+    "genre": "Rock",
+    "rating": 77
+  }
+}
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+DELETE https://intense-escarpment-60510.herokuapp.com/api/v1/favorites/:id
+*Will delete the favorite with the id passed in and return a 204 status code.
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
