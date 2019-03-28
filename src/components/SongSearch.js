@@ -5,8 +5,8 @@ class SongSearch extends React.Component {
   render() {
     return(
       <div style={setFlex}>
-        {this.props.songs.map(song => {
-          return <SearchResults key={song.fav_id} song={song} />
+        {this.props.results.map(result => {
+          return <SearchResults key={result.fav_id} result={result.track} />
         })}
       </div>
     )
